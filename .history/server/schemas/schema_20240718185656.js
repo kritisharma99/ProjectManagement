@@ -86,13 +86,7 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
-//Mutation - it is like add or Upade in Rest API
-const mutation = new GraphQLObjectType({
-  name: "Mutation",
-  fields:()=>({
-    
-  })
-})
+//Mutation - it is like add 
 
 const schema = new GraphQLSchema({
   query: RootQuery,
