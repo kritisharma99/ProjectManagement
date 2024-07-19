@@ -7,7 +7,6 @@ import {
   GraphQLScalarType,
   GraphQLSchema,
   GraphQLList,
-  GraphQLNonNull,
 } from "graphql";
 
 //Mongoose Model
@@ -91,23 +90,7 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: () => ({
-    addClient: {
-      type: ClientTypes,
-      args: {
-        name: { type: GraphQLNonNull(GraphQLString) },
-        email: { type: GraphQLNonNull(GraphQLString) },
-        password: { type: GraphQLNonNull(GraphQLString) },
-      },
-      resolve(parent, args) {
-        const client = new Client({
-          name: args.name,
-          email: args.email,
-          password: args.password,
-        });
-
-        return client.save();
-      },
-    },
+    addClient: {},
   }),
 });
 

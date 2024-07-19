@@ -7,7 +7,6 @@ import {
   GraphQLScalarType,
   GraphQLSchema,
   GraphQLList,
-  GraphQLNonNull,
 } from "graphql";
 
 //Mongoose Model
@@ -90,30 +89,13 @@ const RootQuery = new GraphQLObjectType({
 //Mutation - it is like add or Upade in Rest API
 const mutation = new GraphQLObjectType({
   name: "Mutation",
-  fields: () => ({
-    addClient: {
-      type: ClientTypes,
-      args: {
-        name: { type: GraphQLNonNull(GraphQLString) },
-        email: { type: GraphQLNonNull(GraphQLString) },
-        password: { type: GraphQLNonNull(GraphQLString) },
-      },
-      resolve(parent, args) {
-        const client = new Client({
-          name: args.name,
-          email: args.email,
-          password: args.password,
-        });
-
-        return client.save();
-      },
-    },
-  }),
-});
+  fields:()=>({
+    addClient:{}
+  })
+})
 
 const schema = new GraphQLSchema({
   query: RootQuery,
-  mutation,
 });
 
 export default schema;

@@ -7,7 +7,7 @@ import {
   GraphQLScalarType,
   GraphQLSchema,
   GraphQLList,
-  GraphQLNonNull,
+  Grpa
 } from "graphql";
 
 //Mongoose Model
@@ -93,20 +93,7 @@ const mutation = new GraphQLObjectType({
   fields: () => ({
     addClient: {
       type: ClientTypes,
-      args: {
-        name: { type: GraphQLNonNull(GraphQLString) },
-        email: { type: GraphQLNonNull(GraphQLString) },
-        password: { type: GraphQLNonNull(GraphQLString) },
-      },
-      resolve(parent, args) {
-        const client = new Client({
-          name: args.name,
-          email: args.email,
-          password: args.password,
-        });
-
-        return client.save();
-      },
+      args: { name: { type: GraphQLNonNull(GraphQLString) } },
     },
   }),
 });

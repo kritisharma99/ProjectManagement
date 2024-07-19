@@ -98,16 +98,10 @@ const mutation = new GraphQLObjectType({
         email: { type: GraphQLNonNull(GraphQLString) },
         password: { type: GraphQLNonNull(GraphQLString) },
       },
-      resolve(parent, args) {
-        const client = new Client({
-          name: args.name,
-          email: args.email,
-          password: args.password,
-        });
-
-        return client.save();
-      },
     },
+    resolve(parent, args) {
+      c0onst
+    }
   }),
 });
 
